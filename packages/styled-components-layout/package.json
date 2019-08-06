@@ -1,0 +1,42 @@
+{
+	"name": "@schlagerkhan/styled-components-layout",
+	"version": "0.0.3",
+	"description": "Simple layout components for styled-components",
+	"main": "./lib/index.js",
+	"scripts": {
+		"clean": "rimraf lib",
+		"lint": "eslint src",
+		"test": "jest",
+		"test:watch": "yarn test --watch",
+		"babel": "cross-env BABEL_ENV=production babel src --out-dir lib",
+		"build": "yarn clean && yarn babel",
+		"prepare": "yarn lint && yarn test && yarn build"
+	},
+	"license": "ISC",
+	"files": [
+		"src",
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SchlagerKhan/styled-components-layout"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"keywords": [
+		"styled-components",
+		"layout",
+		"media query",
+		"responsive"
+	],
+	"dependencies": {
+		"@schlagerkhan/styled-components-media": "^0.0.6"
+	},
+	"peerDependencies": {
+		"@schlagerkhan/styled-components-media": "^0.0.6",
+		"react": "*",
+		"react-dom": "*",
+		"styled-components": "^4.0.0"
+	}
+}

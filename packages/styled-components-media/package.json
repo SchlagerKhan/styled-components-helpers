@@ -1,0 +1,36 @@
+{
+	"name": "@schlagerkhan/styled-components-media",
+	"version": "0.0.6",
+	"description": "Simple media query usage for styled-components",
+	"main": "./lib/index.js",
+	"scripts": {
+		"clean": "rimraf lib",
+		"lint": "eslint src",
+		"test": "jest",
+		"test:watch": "yarn test --watch",
+		"build": "cross-env BABEL_ENV=production babel src --out-dir lib",
+		"prepare": "yarn clean && yarn lint && yarn test && yarn build"
+	},
+	"license": "ISC",
+	"files": [
+		"src",
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SchlagerKhan/styled-components-helpers"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"keywords": [
+		"styled-components",
+		"media query",
+		"responsive"
+	],
+	"peerDependencies": {
+		"react": "^16.8.6",
+		"react-dom": "*",
+		"styled-components": "^4.0.0"
+	}
+}
