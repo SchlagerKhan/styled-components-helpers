@@ -1,0 +1,7 @@
+{
+	"private": true,
+	"name": "@schlagerkhan/styled-components-helpers",
+	"description": "A monorepo for some styled-components helper packages",
+	"version": "0.0.1",
+	"license": "ISC"
+}
