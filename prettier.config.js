@@ -7,9 +7,14 @@ module.exports = {
 		{
 			files: '*.yml',
 			options: {
-				semi: true,
 				tabWidth: 2,
 			},
 		},
+		{
+			files: '*.md',
+			options: {
+				useTabs: false,
+			}
+		}
 	],
 };
