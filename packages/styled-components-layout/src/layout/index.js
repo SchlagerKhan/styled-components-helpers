@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Layout = styled.article`
-	width: 100%;
-	flex: 1;
+	height: 100vh;
+	width: 100vw;
 
 	display: flex;
 	flex-direction: column;
 `;
-
 
 styled.Layout = styled(Layout);
