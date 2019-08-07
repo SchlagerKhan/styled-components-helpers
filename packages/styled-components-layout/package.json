@@ -1,6 +1,6 @@
 {
 	"name": "@schlagerkhan/styled-components-layout",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"description": "Simple layout components for styled-components",
 	"main": "./lib/index.js",
 	"scripts": {
@@ -31,7 +31,7 @@
 		"responsive"
 	],
 	"dependencies": {
-		"@schlagerkhan/styled-components-media": "^0.0.6"
+		"@schlagerkhan/styled-components-media": "^0.1.0"
 	},
 	"peerDependencies": {
 		"@schlagerkhan/styled-components-media": "^0.0.6",
