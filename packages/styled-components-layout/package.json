@@ -34,7 +34,6 @@
 		"@schlagerkhan/styled-components-media": "^0.1.0"
 	},
 	"peerDependencies": {
-		"@schlagerkhan/styled-components-media": "^0.0.6",
 		"react": "*",
 		"react-dom": "*",
 		"styled-components": "^4.0.0"
