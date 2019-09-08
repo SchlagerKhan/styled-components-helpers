@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { shadow, castShadow, dropShadow } from './shadow';
-import { vh } from './vh';
+import { vh, enableVh } from './vh';
 
 export * from './shadow';
 export * from './vh';
@@ -29,3 +29,5 @@ styled.mixins.hyphenate = css`
 `;
 
 Object.assign(styled.mixins, { vh, shadow, castShadow, dropShadow });
+
+enableVh();

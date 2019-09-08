@@ -22,14 +22,14 @@ export const vh = (prop, val) => {
 	`;
 };
 
-export function enableVH100() {
+export function enableVh() {
 	if (!hasEventListener) return;
 
 	window.addEventListener('resize', debUpdatedVarFn);
 	hasEventListener = true;
 }
 
-export function disableVH100() {
+export function disableVh() {
 	window.removeEventListener('resize', debUpdatedVarFn);
 	hasEventListener = false;
 }
