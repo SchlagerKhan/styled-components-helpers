@@ -1,6 +1,6 @@
 {
 	"name": "@schlagerkhan/styled-components-mixins",
-	"version": "0.0.1",
+	"version": "0.1.2",
 	"license": "ISC",
 	"scripts": {
 		"clean": "rimraf lib",
