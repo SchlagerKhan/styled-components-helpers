@@ -1,0 +1,27 @@
+{
+	"name": "styled-components-mixins",
+	"version": "0.0.1",
+	"license": "ISC",
+	"scripts": {
+		"clean": "rimraf lib",
+		"lint": "eslint src",
+		"build": "cross-env BABEL_ENV=production babel src --out-dir lib",
+		"prepare": "yarn clean && yarn lint && yarn build"
+	},
+	"main": "lib/index.js",
+	"files": [
+		"src",
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SchlagerKhan/styled-components-helpers"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"lodash": "^4.17.15",
+		"styled-components": "^4.3.2"
+	}
+}
