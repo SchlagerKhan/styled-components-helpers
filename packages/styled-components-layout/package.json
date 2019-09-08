@@ -31,7 +31,8 @@
 		"responsive"
 	],
 	"dependencies": {
-		"@schlagerkhan/styled-components-media": "^0.1.0"
+		"@schlagerkhan/styled-components-media": "^0.1.0",
+		"@schlagerkhan/styled-components-mixins": "^0.0.1"
 	},
 	"peerDependencies": {
 		"react": "*",

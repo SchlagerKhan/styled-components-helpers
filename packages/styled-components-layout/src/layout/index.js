@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Layout = styled.article`
-	height: 100vh;
-	width: 100vw;
+	${styled.mixins.vh('min-height', 100)};
+	width: 100%;
 
 	display: flex;
 	flex-direction: column;
