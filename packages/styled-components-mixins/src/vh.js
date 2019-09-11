@@ -10,13 +10,12 @@ function updateVh() {
 }
 
 export function vh(prop, val) {
-	/* Fallback for browsers that do not support Custom Properties */
-	const fallback = `${prop}: ${val}vh;`;
-	const calc = `${prop}: calc(var(--vh, 1vh) * val);`;
-
 	return css`
-		${fallback}
-		${calc}
+		/* Fallback for browsers that do not support Custom Properties */
+		${prop}: ${val}vh;
+
+		/* Magic with css variables */
+		${prop}: calc(var(--vh, 1vh) * ${val});
 	`;
 }
 
