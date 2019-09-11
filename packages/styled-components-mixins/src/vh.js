@@ -4,14 +4,12 @@ import { css } from 'styled-components';
 
 let hasEventListener = false;
 
-function updateVarFn() {
-	const vh = window.innerHeight * 0.01;
-	document.documentElement.style.setProperty('--vh', `${vh}px`);
+function updateVh() {
+	const newValue = window.innerHeight * 0.01;
+	document.documentElement.style.setProperty('--vh', `${newValue}px`);
 }
 
-const debUpdatedVarFn = debounce(updateVarFn, 100);
-
-export const vh = (prop, val) => {
+export function vh(prop, val) {
 	/* Fallback for browsers that do not support Custom Properties */
 	const fallback = `${prop}: ${val}vh;`;
 	const calc = `${prop}: calc(var(--vh, 1vh) * val);`;
@@ -20,16 +18,24 @@ export const vh = (prop, val) => {
 		${fallback}
 		${calc}
 	`;
+}
+
+vh.triggerUpdate = debounce(updateVh, 100);
+
+vh.enable = function() {
+	if (hasEventListener) return;
+
+	window.addEventListener('load', vh.triggerUpdate);
+	window.addEventListener('resize', vh.triggerUpdate);
+
+	hasEventListener = true;
 };
 
-export function enableVh() {
+vh.disable = function() {
 	if (!hasEventListener) return;
 
-	window.addEventListener('resize', debUpdatedVarFn);
-	hasEventListener = true;
-}
+	window.removeEventListener('load', vh.triggerUpdate);
+	window.removeEventListener('resize', vh.triggerUpdate);
 
-export function disableVh() {
-	window.removeEventListener('resize', debUpdatedVarFn);
 	hasEventListener = false;
-}
+};
