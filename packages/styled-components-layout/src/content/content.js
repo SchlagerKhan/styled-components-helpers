@@ -21,7 +21,7 @@ function createPadding(padding) {
 function createMediaCssArray(values, fn) {
 	const keys = Object.keys(values);
 
-	return keys.map((key) => {
+	return keys.map(key => {
 		const value = values[key];
 
 		return css`
@@ -64,16 +64,20 @@ function paddingStyle({ theme }) {
 	`;
 }
 
-export const Content = styled.div`
+export const ContentPadding = styled.div`
 	width: 100%;
 	flex: 1;
 
+	${paddingStyle};
+`;
+
+styled.ContentPadding = styled(ContentPadding);
+
+export const Content = styled.ContentPadding`
 	margin-left: auto;
 	margin-right: auto;
 
 	${maxWidthStyle};
-
-	${paddingStyle};
 `;
 
 styled.Content = styled(Content);
