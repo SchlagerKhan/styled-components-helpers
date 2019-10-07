@@ -2,7 +2,11 @@
 
 A super simple library that makes it easier to handle media queries in `styled-components`.
 
-_**OBS! This library injects the properties `minMedia` and `maxMedia` into the styled-components default exported object.**_
+_**OBS! This library injects the following properties into the styled-components default exported object:**_
+
+-   `minWidth`, `maxWidth`
+-   `minHeight`, `maxHeight`
+-   `minDevice`, `maxDevice`
 
 # Installation
 
@@ -26,27 +30,27 @@ import styled from 'styled-components';
 import { MediaThemeProvider } from '@schlagerkhan/styled-components-media';
 
 export const App = () => (
-    <MediaThemeProvider>
-        <Comp />
-    </MediaThemeProvider>
+	<MediaThemeProvider>
+		<Comp />
+	</MediaThemeProvider>
 );
 
 /* Comp.js */
 import styled from 'styled-components';
-// import { minMedia } from '@schlagerkhan/styled-components-media'; // if you want to
+// import { minWidth } from '@schlagerkhan/styled-components-media'; // if you want to
 
 const Wrapper = styled.div`
-    width: 100%;
+	width: 100%;
 
-    ${styled.minMedia.laptop} {
-        width: 50%;
-    }
+	${styled.minWidth.laptop} {
+		width: 50%;
+	}
 `;
 
 export const Comp = () => <Wrapper>Text</Wrapper>;
 ```
 
-## Full
+## Advanced
 
 The following code exposes a component with the following properties:
 
@@ -55,41 +59,35 @@ The following code exposes a component with the following properties:
 
 ```jsx
 import styled from 'styled-components';
-import {
-    MediaThemeProvider,
-    minMedia,
-    maxMedia,
-} from '@schlagerkhan/styled-components-media';
+import { MediaThemeProvider, minWidth, maxWidth } from '@schlagerkhan/styled-components-media';
 
+const WIDTH = { width1: 500, width2: 800 };
 const THEME = {
-    media: {
-        mediaQuery1: 500,
-        mediaQuery2: 800,
-    },
+	media: createMedia({ WIDTH }),
 };
 
 const Wrapper = styled.div`
-    width: 100%;
+	width: 100%;
 
-    ${minMedia.mediaQuery1} {
-        width: 50%;
-    }
+	${minWidth.width1} {
+		width: 50%;
+	}
 `;
 
 const Text = styled.p`
-    font-size: 24px;
+	font-size: 24px;
 
-    ${maxMedia.mediaQuery2} {
-        font-size: 16px;
-    }
+	${maxWidth.width2} {
+		font-size: 16px;
+	}
 `;
 
 export const App = () => (
-    <MediaThemeProvider theme={THEME}>
-        <Wrapper>
-            <Text>Hello</Text>
-        </Wrapper>
-    </MediaThemeProvider>
+	<MediaThemeProvider theme={THEME}>
+		<Wrapper>
+			<Text>Hello</Text>
+		</Wrapper>
+	</MediaThemeProvider>
 );
 ```
 
@@ -101,7 +99,7 @@ The package exposes the following modules/components:
 
 A direct extension of styled-components's `ThemeProvider` but with a default set of media (see below). The media can be overridden (as seen in the example).
 
-### DEFAULT_MEDIA_SIZES
+### `DEFAULT_MEDIA_WIDTH_SIZES`
 
 -   mobileS: 320
 -   mobileM: 375
@@ -111,29 +109,100 @@ A direct extension of styled-components's `ThemeProvider` but with a default set
 -   laptopL: 1440
 -   desktop: 2560
 
-### minMedia
+### `DEFAULT_MEDIA_HEIGHT_SIZES`
 
-As mentioned above; `minMedia` and `maxMedia` are injected into the styled-components default export object.
+-   mobileS: 568
+-   mobileM: 667
+-   mobileL: 812
+
+### `DEFAULT_MEDIA_DEVICE_SIZES`
+
+_Mind the case sensitivity_
+
+-   iPhoneSE: `{ width: 320, height: 568 }`
+-   iPhone678: `{ width: 375, height: 667 }`
+-   iPhone678Plus: `{ width: 414, height: 736 }`
+-   iPhoneX: `{ width: 375, height: 812 }`
+
+### `DEFAULT_MEDIA`
+
+-   WIDTH: `DEFAULT_MEDIA_WIDTH_SIZES`
+-   HEIGHT: `DEFAULT_MEDIA_HEIGHT_SIZES`
+-   DEVICE: `DEFAULT_MEDIA_DEVICE_SIZES`
+
+### `createMedia`
+
+Helper function to create a custom media size schema to use with `MediaThemeProvider`.
+
+```jsx
+const WIDTH = {
+    width1: 500
+};
+const HEIGHT = {
+    height1: 500
+};
+const DEVICE = {
+    device1: {
+        width: 200,
+        height: 200
+    }
+}
+
+const media = createMedia({ WIDTH, HEIGHT, DEVICE });
+const theme = { media };
+
+<MediaThemeProvider theme={theme}>
+    {...}
+</MediaThemeProvider>
+```
+
+### `minWidth`, `maxWidth`
+
+_(also available as `styled.minWidth` and `styled.maxWidth`)_
 
 Uses the current theme to find out the value and translates it into a media query such as:
 
 ```js
-minMedia.laptop {
+// CSS-in-JS
+minWidth.laptop {
     background: red;
 }
 ```
 
-compiles to
+transpiles to
 
 ```css
-@media screen and (min-width: 1024px) {
-    background: red;
+#CSS @media screen and (min-width: 1024px) {
+	background: red;
 }
 ```
 
-### maxMedia
+### `minHeight`, `maxHeight`
 
-The same as minMedia but for the `max-width` query instead.
+_(also available as `styled.minHeight` and `styled.maxHeight`)_
+
+The same as `min/maxWidth` but is instead targetting the height dimension.
+
+### `minDevice`, `maxDevice`
+
+_(also available as `styled.minDevice` and `styled.maxDevice`)_
+
+In the same manner as above but with both the width and height dimension such as:
+
+```js
+// CSS-in-JS
+minDevice.iPhoneX {
+	background: red;
+}
+```
+
+transpiles to
+
+```css
+#CSS @media screen and (min-width: 375px) and (min-height: 812px) {
+	background: red;
+}
+```
 
 # Contribute
 
