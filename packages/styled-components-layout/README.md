@@ -73,7 +73,7 @@ The components have to be used in a specific hiearchy in order to work correctly
 
 <img src='./docs/layout.png' width='600px'>
 
-Every level-2-component (middle component above) that needs centered content can use the `Content` as a direct child (as in the code example above).
+Every level-2-component (Header, Main, Footer) that needs centered content can use the `Content` as a direct child (as in the code example above).
 
 ## API
 
@@ -132,11 +132,11 @@ It renders as a `main` html tag.
 
 ## Content
 
-This component is where the magic happens. It is centered using the `margin-left/right: auto`. Also, with the help of `max/minMedia` from the `@schlagerkhan/styled-component-media` project and the objects defined by the `LayoutThemeProvider` it creates a responsive component that updates it's `max-width` and horizontal paddings depending on the current viewport.
+This component is where the magic happens. It is centered using the `margin-left/right: auto`. Also, with the help of `max/minWidth` from the `@schlagerkhan/styled-component-media` project and the objects defined by the `LayoutThemeProvider` it creates a responsive component that updates it's `max-width` and horizontal paddings depending on the current viewport.
 
 In this way you can always use the `Content` tag to center your content in the same way all across your application.
 
-It renders as a `div` html tag.
+It renders as a `div` tag.
 
 # Contribute
 

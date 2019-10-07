@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { minMedia } from '@schlagerkhan/styled-components-media';
 
 function createMaxWidth(maxWidth) {
 	return css`
@@ -15,8 +14,7 @@ function createPadding(padding) {
 }
 
 /**
- * Loops through the css-media-values and inserts them
- * in the corresponding minMedia query.
+ * Loops through the css-media-values and inserts them in the corresponding minWidth query.
  */
 function createMediaCssArray(values, fn) {
 	const keys = Object.keys(values);
@@ -25,7 +23,7 @@ function createMediaCssArray(values, fn) {
 		const value = values[key];
 
 		return css`
-			${minMedia[key]} {
+			${styled.minWidth[key]} {
 				${fn(value)}
 			}
 		`;
