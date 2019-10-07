@@ -1,6 +1,6 @@
 {
 	"name": "@schlagerkhan/styled-components-layout",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Simple layout components for styled-components",
 	"main": "./lib/index.js",
 	"scripts": {
