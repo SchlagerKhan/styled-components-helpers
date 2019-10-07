@@ -17,7 +17,7 @@ export const DEFAULT_CONTENT_MEDIA_PADDINGS = {
 
 const contentMediaPaddings = DEFAULT_CONTENT_MEDIA_PADDINGS;
 const contentMediaMaxWidths = DEFAULT_CONTENT_MEDIA_MAX_WIDTHS;
-const createTheme = theme => Object.assign({ contentMediaPaddings, contentMediaMaxWidths }, theme);
+const createTheme = (theme) => Object.assign({ contentMediaPaddings, contentMediaMaxWidths }, theme);
 
 export const LayoutThemeProvider = ({ theme, ...props }) => {
 	const newTheme = createTheme(theme);

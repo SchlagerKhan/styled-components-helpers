@@ -21,7 +21,7 @@ function createPadding(padding) {
 function createMediaCssArray(values, fn) {
 	const keys = Object.keys(values);
 
-	return keys.map(key => {
+	return keys.map((key) => {
 		const value = values[key];
 
 		return css`
