@@ -7,7 +7,6 @@
 		"clean": "rimraf lib",
 		"lint": "eslint src",
 		"test": "jest",
-		"test:watch": "yarn test --watch",
 		"babel": "cross-env BABEL_ENV=production babel src --out-dir lib",
 		"build": "yarn clean && yarn babel",
 		"prepare": "yarn lint && yarn test && yarn build"
