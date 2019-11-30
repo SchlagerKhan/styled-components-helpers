@@ -30,21 +30,23 @@ describe('Basic', () => {
 
 describe('Rendering', () => {
 	test('Render Content', () => {
-		const fn = () => render(
-			<Provider>
-				<Content />
-			</Provider>,
-		);
+		const fn = () =>
+			render(
+				<Provider>
+					<Content />
+				</Provider>,
+			);
 
 		expect(fn).not.toThrow();
 	});
 
 	test('Render all', () => {
-		const fn = () => render(
-			<Provider>
-				<Comp />
-			</Provider>,
-		);
+		const fn = () =>
+			render(
+				<Provider>
+					<Comp />
+				</Provider>,
+			);
 
 		expect(fn).not.toThrow();
 	});

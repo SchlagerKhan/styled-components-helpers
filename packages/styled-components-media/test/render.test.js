@@ -35,6 +35,7 @@ describe('Render', () => {
 
 			return null;
 		};
+
 		const ThemeComp = withTheme(themeComp);
 
 		const providerProps = { theme: newTheme };

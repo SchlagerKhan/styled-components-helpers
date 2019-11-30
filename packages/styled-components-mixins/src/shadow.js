@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 
+// eslint-disable-next-line
 export const shadow = (x, y, blur, spread, color) => css`
 	box-shadow: ${x}px ${y}px ${blur}px ${spread}px ${color};
 `;
