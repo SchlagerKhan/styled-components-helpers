@@ -1,6 +1,6 @@
 {
 	"name": "@schlagerkhan/styled-components-layout",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"description": "Simple layout components for styled-components",
 	"main": "./lib/index.js",
 	"scripts": {
@@ -31,7 +31,7 @@
 	],
 	"dependencies": {
 		"@schlagerkhan/styled-components-media": "^0.2.3",
-		"@schlagerkhan/styled-components-mixins": "^0.2.3"
+		"@schlagerkhan/styled-components-mixins": "^0.2.4"
 	},
 	"peerDependencies": {
 		"react": "*",
